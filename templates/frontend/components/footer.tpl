@@ -23,9 +23,26 @@
 			{/if}
 
 			<div class="col-md col-md-2 align-self-center text-right">
-				<a href="{url page="about" op="aboutThisPublishingSystem"}">
-					<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}"
-					     src="{$baseUrl}/{$brandImage}">
+				{capture assign="pageFooterLogoImgAltText"}{translate key="about.aboutThisPublishingSystem"}{/capture}
+				{assign var="pageFooterLogoImgSrcBaseUrl" value=$baseUrl}
+				{assign var="pageFooterLogoImgSrcFile" value=$brandImage}
+
+				{if $displayPageFooterLogoLinkUrl}
+					{assign var="pageFooterLogoLink" value=$displayPageFooterLogoLinkUrl}
+				{/if}
+
+				{if $displayPageFooterLogo && is_array($displayPageFooterLogo)}
+					{if $displayPageFooterLogo.altText != ''}
+						{assign var="pageFooterLogoImgAltText" value=$displayPageFooterLogo.altText}
+					{/if}
+
+					{assign var="pageFooterLogoImgSrcBaseUrl" value=$publicFilesDir}
+					{capture assign="pageFooterLogoImgSrcFile"}{$displayPageFooterLogo.uploadName|escape:"url"}{/capture}
+				{/if}
+
+				<a href="{$pageFooterLogoLink}">
+					<img class="footer-brand-image" alt="{$pageFooterLogoImgAltText|escape}"
+					     src="{$pageFooterLogoImgSrcBaseUrl}/{$pageFooterLogoImgSrcFile}">
 				</a>
 			</div>
 		</div>

@@ -37,6 +37,7 @@
 		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
 		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
 				 class="img-fluid">
+		<span>{$displayPageHeaderLogo.altText|escape}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 		<span class="navbar-logo-text">{$displayPageHeaderTitle|escape}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
