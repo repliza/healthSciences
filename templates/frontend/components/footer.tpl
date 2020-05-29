@@ -42,7 +42,7 @@
 
 				<a href="{$pageFooterLogoLink}">
 					<img class="footer-brand-image" alt="{$pageFooterLogoImgAltText|escape}"
-					     src="{$pageFooterLogoImgSrcBaseUrl}/{$pageFooterLogoImgSrcFile}">
+					     src="{$pageFooterLogoImgSrcBaseUrl}/{$pageFooterLogoImgSrcFile}" data-cy="page-footer-logo-img">
 				</a>
 			</div>
 		</div>
